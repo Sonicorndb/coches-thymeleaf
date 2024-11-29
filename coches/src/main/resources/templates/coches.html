@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <title th:text="#{pagina.error}">Página de Error</title>
+</head>
+	<body>
+		<h1 th:text="#{titulo.coches}">Coches</h1>
+		<div th:if="#{coches.isEmpty()}">
+			<p th:text="#{message.sinCoches}"></p>
+		</div>
+		
+		<div th:unless="${coches.isEmpty()">
+			<table>	
+				<tr>
+					<td td:text="#coche.marca"><p>Marca</p></td>
+					<td td:text="#coche.modelo"><p>modelo</p>></td>
+					<td td:text="#coche.precio"><p>precio</p>></td>
+					<td td:text="#coche.anyo"><p>año</p>></td>
+					<td td:text="#coche.fuenteEnergia"><p>fuente Energía</p>></td>
+				</tr>
+				<tr th:each="coche: ${coches}">
+					<td th:text="${coche.marca}"></td>
+					<td th:text="${coche.modelo}"></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
